@@ -2,8 +2,8 @@ pipeline {
     agent {
         docker {
             image 'symfony_base-php'
-            // Utiliser des chemins Linux pour Docker sur Windows
-            args '-v //c/ProgramData/Jenkins:/workspace -w /workspace'
+            // Outrepasser l'entrypoint si nécessaire
+            args '-v /c/ProgramData/Jenkins:/workspace -w /workspace --entrypoint=""'
         }
     }
 
@@ -17,6 +17,7 @@ pipeline {
         stage('Install') {
             steps {
                 script {
+                    // Installer les dépendances Composer
                     sh 'composer install --no-interaction --prefer-dist'
                 }
             }
@@ -25,6 +26,7 @@ pipeline {
         stage('Tests') {
             steps {
                 script {
+                    // Lancer PHPUnit
                     sh './vendor/bin/phpunit'
                 }
             }
