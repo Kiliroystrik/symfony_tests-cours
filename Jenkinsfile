@@ -2,14 +2,7 @@ pipeline {
     agent {
         docker {
             image 'symfony_base-php'
-        } 
-    }
-    environment {
-        SOME_ENV_VAR = 'some_value'
-    }
-    tools {
-        dockerTool 'Docker'
-        // jdk 'your_jdk_version'
+        }
     }
 
     stages {
