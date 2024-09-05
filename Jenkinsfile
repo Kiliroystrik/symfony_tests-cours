@@ -1,15 +1,14 @@
 pipeline {
     agent {
         docker {
-            // Assurez-vous que l'image Docker est correcte et disponible
-            image 'symfony_base-php' // Remplacer par votre image Docker correcte
+            image 'symfony_base-php'
+            args '-v /c/ProgramData/Jenkins:/workspace' // Assure un montage correct pour Docker sur Windows
         }
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // Cloner le dépôt Git
                 git branch: 'main', url: 'https://github.com/Kiliroystrik/symfony_tests-cours.git'
             }
         }
