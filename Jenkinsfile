@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image '9ff443428e6fe6964cb72dbc20297b434dbb98635fec1f686ec6b54305772432'
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Optional: Mount Docker socket for Docker-in-Docker
         }
     }
 
