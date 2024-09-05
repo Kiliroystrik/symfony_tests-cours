@@ -1,9 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'symfony_base-php'
-            // Désactiver les arguments de volume et de répertoire de travail
-            args '--entrypoint=""'
+            image '9ff443428e6fe6964cb72dbc20297b434dbb98635fec1f686ec6b54305772432'
         }
     }
 
