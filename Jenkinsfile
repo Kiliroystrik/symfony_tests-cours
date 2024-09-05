@@ -1,33 +1,28 @@
 pipeline {
     agent {
         docker {
-            image 'symfony_base-php'
+            image 'node:16-alpine' // Utilise l'image officielle de Node.js
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Pour accéder au socket Docker
         }
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Kiliroystrik/symfony_tests-cours.git'
-            }
-        }
-
-        stage('Install') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    // Installer les dépendances Composer
-                    sh 'composer install --no-interaction --prefer-dist'
+                    // Construire l'image Docker avec Node.js
+                    sh 'docker build -t mon-image-nodejs .'
                 }
             }
         }
+    }
 
-        stage('Tests') {
-            steps {
-                script {
-                    // Lancer PHPUnit
-                    sh './vendor/bin/phpunit'
-                }
-            }
+    post {
+        success {
+            echo 'L\'image Docker Node.js a été construite avec succès !'
+        }
+        failure {
+            echo 'La construction de l\'image Docker a échoué.'
         }
     }
 }
