@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'symfony_base-php'
-            args '-v /c/ProgramData/Jenkins:/workspace' // Assure un montage correct pour Docker sur Windows
+            args '-v //c/ProgramData/Jenkins:/workspace' // Assure un montage correct pour Docker sur Windows
         }
     }
 
