@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'symfony_base-php' // Replace with your desired Docker image
+        }
+    }
 
     stages {
         stage('Checkout') {
