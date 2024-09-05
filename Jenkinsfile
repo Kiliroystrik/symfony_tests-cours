@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'symfony_base-php'
             // Outrepasser l'entrypoint si nécessaire
-            args '-v /c/ProgramData/Jenkins:/workspace -w /workspace --entrypoint=""'
+            args '-v /c/ProgramData/Jenkins:/workspace --entrypoint=""'
         }
     }
 
