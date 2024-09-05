@@ -6,7 +6,7 @@ pipeline {
         SOME_ENV_VAR = 'some_value'
     }
     tools {
-        docker 'latest'
+        dockerTool 'latest'
         // jdk 'your_jdk_version'
     }
 
