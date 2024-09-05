@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        label 'symfony_base-php'
+        docker {
+            image 'symfony_base-php'
+        } 
     }
     environment {
         SOME_ENV_VAR = 'some_value'
