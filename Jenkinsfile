@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+        label 'symfony_base-php'
     }
     environment {
         SOME_ENV_VAR = 'some_value'
