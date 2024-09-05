@@ -1,11 +1,9 @@
 pipeline {
     agent {
-        docker {
-            image 'symfony_base-php'
-            // Outrepasser l'entrypoint si nécessaire
-            args '-v /c/ProgramData/Jenkins:/workspace --entrypoint=""'
+            docker {
+                image 'symfony_base-php'
+            }
         }
-    }
 
     stages {
         stage('Checkout') {
