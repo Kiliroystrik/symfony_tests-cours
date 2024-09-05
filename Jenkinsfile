@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker'
+        label 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     }
     environment {
         SOME_ENV_VAR = 'some_value'
