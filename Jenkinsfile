@@ -1,9 +1,10 @@
 pipeline {
     agent {
-            docker {
-                image 'symfony_base-php'
-            }
+        docker {
+            image 'symfony_base-php'
+            args '-p 8080:80'
         }
+    }
 
     stages {
         stage('Checkout') {
