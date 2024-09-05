@@ -1,9 +1,13 @@
 pipeline {
     agent {
-        docker {
-            image '9ff443428e6fe6964cb72dbc20297b434dbb98635fec1f686ec6b54305772432'
-            args '-v /var/run/docker.sock:/var/run/docker.sock' // Optional: Mount Docker socket for Docker-in-Docker
-        }
+        label 'docker'
+    }
+    environment {
+        SOME_ENV_VAR = 'some_value'
+    }
+    tools {
+        docker 'latest'
+        // jdk 'your_jdk_version'
     }
 
     stages {
